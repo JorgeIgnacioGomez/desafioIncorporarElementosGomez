@@ -127,3 +127,14 @@ function loadHtml(){
 function clearHtml(){
     containerBuyCart.innerHTML = '';
 }
+
+const valor = {
+    titulo:"Teclado",
+    precio: 20,
+}
+
+const valornum = JSON.stringify(valor)
+
+localStorage.setItem ("precio Actual", valornum)
+
+console.log(valornum)
