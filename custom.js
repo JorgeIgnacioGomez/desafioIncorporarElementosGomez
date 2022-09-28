@@ -9,11 +9,7 @@ let rand = ~~(Math.random()*myArray.length);
 const rValue = myArray[rand];
 console.log(rValue)
 
-let hi = prompt ('Bienvenido a nuestro sitio!, como es tu nombre?');
-
-alert(`Bienvenido! ${hi}, Disfruta navegando`);
-
-window.onload=function(){alert('Selecciona los mejores productos y los mejores precios!');}
+let objeto = JSON.parse('{"nombre": "juan", "edad": 33, "casado": false}');
 
 const usuario = {
     nombre: "Manolo",
@@ -137,4 +133,8 @@ const valornum = JSON.stringify(valor)
 
 localStorage.setItem ("precio Actual", valornum)
 
-console.log(valornum)
+console.log(valornum);
+
+let perfil = JSON.parse(localStorage.getItem('precio Actual'))
+
+console.log(perfil);
