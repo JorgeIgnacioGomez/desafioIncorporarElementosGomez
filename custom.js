@@ -1,4 +1,5 @@
 //variables
+let buyThings = []; 
 let allContainerCart = document.querySelector('.products');
 let containerBuyCart = document.querySelector('.card-items');
 let priceTotal = document.querySelector('.price-total')
@@ -10,6 +11,40 @@ const rValue = myArray[rand];
 console.log(rValue)
 
 let objeto = JSON.parse('{"nombre": "juan", "edad": 33, "casado": false}');
+
+const vaciarCarritoBtn = document.querySelector('#btn-alert');
+
+const boton =document.querySelector("#btn-alert")
+
+boton.addEventListener("click", () => { 
+Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Se vació tu carrito',
+    showConfirmButton: false,
+    timer: 1500
+})
+    buyThings.length = 0;
+    priceTotal.innerText = 0;
+    loadHtml ();  
+    })
+    //Swal.fire({
+    //    title: 'Are you sure?',
+    //    text: "You won't be able to revert this!",
+    //    icon: 'warning',
+    //    showCancelButton: true,
+    //    confirmButtonColor: '#3085d6',
+    //    cancelButtonColor: '#d33',
+    //    confirmButtonText: 'Yes, delete it!'
+    //}).then((result) => {
+    //    if (result.isConfirmed) {
+    //    Swal.fire(
+    //        'Deleted!',
+    //        'Your file has been deleted.',
+    //       'success'      )
+    //    }
+    //}) 
+//}) 
 
 const usuario = {
     nombre: "Manolo",
@@ -23,15 +58,14 @@ let teclados = [
     {id: 3, nombre: "datos", precio : 2000},
 ]
 
-let buyThings = [];
 let totalCard = 0;
 let countProduct = 0;
 
 //functions
+
 loadEventListenrs();
 function loadEventListenrs(){
     allContainerCart.addEventListener('click', addProduct);
-
     containerBuyCart.addEventListener('click', deleteProduct);
 }
 
@@ -56,7 +90,7 @@ function deleteProduct(e) {
         });
         buyThings = buyThings.filter(product => product.id !== deleteId);
         
-        countProduct--;
+        countProduct--; 
     }
 
     if (buyThings.length === 0) {
